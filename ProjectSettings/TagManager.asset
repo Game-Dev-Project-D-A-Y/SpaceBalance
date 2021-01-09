@@ -7,6 +7,7 @@ TagManager:
   - Bottle
   - BottomBorder
   - BlackHole
+  - Alien
   layers:
   - Default
   - TransparentFX
