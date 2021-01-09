@@ -1004,15 +1004,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseObject: {fileID: 974648193}
-  bottleToSpawn: {fileID: 2043138080152361156, guid: 43beb91e05332bf4ab3e867e980838a7,
+  alienToSpawn: {fileID: 2043138080152361156, guid: 43beb91e05332bf4ab3e867e980838a7,
     type: 3}
   blackHoleToSpawn: {fileID: 4679355589795168733, guid: 938817ed33c3d4f439f40836ec2d6836,
     type: 3}
   gameTimeScoreTxt: {fileID: 1518890797}
-  bottleTimerTxt: {fileID: 1817329866}
-  BottelsCollectedTxt: {fileID: 307435858}
-  scoreToReduceTimeBottle: 2
-  maxTimeToCollectBottle: 10
+  alienTimerTxt: {fileID: 0}
+  aliensCollectedTxt: {fileID: 0}
+  scoreToReduceTimeAlien: 0
+  maxTimeToCollectAlien: 0
 --- !u!4 &1094938811
 Transform:
   m_ObjectHideFlags: 0

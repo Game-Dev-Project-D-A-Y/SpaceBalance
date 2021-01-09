@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     [Tooltip("Bottle prefab to be respawn")]
     [SerializeField]
-    GameObject bottleToSpawn;
+    GameObject alienToSpawn;
 
     [Tooltip("Black hole prefab to be respawn")]
     [SerializeField]
@@ -28,22 +28,22 @@ public class GameManager : MonoBehaviour
 
     [Tooltip("Bottle timer text field to be edited")]
     [SerializeField]
-    TextMeshPro bottleTimerTxt; 
+    TextMeshPro alienTimerTxt; 
 
     [Tooltip("Number of bottle collected text field to be edited")]
     [SerializeField]
-    TextMeshPro BottelsCollectedTxt; 
+    TextMeshPro aliensCollectedTxt; 
 
     [Tooltip("Decrease bottle timer when achived given score")]
     [SerializeField]
-    int scoreToReduceTimeBottle; 
+    int scoreToReduceTimeAlien; 
 
     [Tooltip("Maximum time for collecting bottle")]
     [SerializeField]
-    float maxTimeToCollectBottle;
+    float maxTimeToCollectAlien;
 
     // Variable that holds the current time left to collect bottle
-    private float timeLeftToCollectBottle;
+    private float timeLeftToCollectAlien;
 
     // Game timer
     private float timeGained; 
@@ -52,13 +52,13 @@ public class GameManager : MonoBehaviour
     private bool isActive = true;
 
     // Number of bottles collected
-    private int bottelsCollected = 0; 
+    private int aliensCollected = 0; 
 
     // Start is called before the first frame update
     void Start()
     {
-        timeLeftToCollectBottle = maxTimeToCollectBottle + 1;
-        SpawnBottle();
+        timeLeftToCollectAlien = maxTimeToCollectAlien + 1;
+        SpawnAlien();
     }
 
     // Update is called once per frame
@@ -67,21 +67,21 @@ public class GameManager : MonoBehaviour
         if (!isActive) return;
 
        // UpdateGameTime();
-        BottleTime();
+        AlienTime();
     }
 
     // PUBLIC METHODS
 
     // Method thats being called when bottle is picked
-    public void OnBottlePicked(GameObject bottle)
+    public void OnAlienPicked(GameObject bottle)
     {
-        Debug.Log("OnBottlePicked");
-        SpawnBottle();
+        Debug.Log("OnAlienPicked");
+        SpawnAlien();
         Destroy (bottle);
-        bottelsCollected += 1;
-        Debug.Log("bottelsCollected:" + bottelsCollected);
-        BottelsCollectedTxt.SetText("Score\n{0}", (int)bottelsCollected);
-        CheckAndUpdateBottleTime();
+        aliensCollected += 1;
+        Debug.Log("aliensCollected:" + aliensCollected);
+        aliensCollectedTxt.SetText("Score\n{0}", (int)aliensCollected);
+        CheckAndUpdateAlienTime();
     }
 
     // Method thats being called when the ball hits the sea
@@ -115,31 +115,31 @@ public class GameManager : MonoBehaviour
     }
 
     // Method that checks and updates time left for collecting bottle
-    private void CheckAndUpdateBottleTime()
+    private void CheckAndUpdateAlienTime()
     {
         if (
-            bottelsCollected >= scoreToReduceTimeBottle &&
-            maxTimeToCollectBottle >= 5
+            aliensCollected >= scoreToReduceTimeAlien &&
+            maxTimeToCollectAlien >= 5
         )
         {
-            maxTimeToCollectBottle -= 1;
-            scoreToReduceTimeBottle *= 2;
+            maxTimeToCollectAlien -= 1;
+            scoreToReduceTimeAlien *= 2;
         }
-        timeLeftToCollectBottle = maxTimeToCollectBottle;
+        timeLeftToCollectAlien = maxTimeToCollectAlien;
     }
 
     // Method that sets time left for collecting bottle
-    private void BottleTime()
+    private void AlienTime()
     {
-        timeLeftToCollectBottle -= Time.deltaTime;
-        bottleTimerTxt.SetText("Bottle Timer\n{0}", (int) timeLeftToCollectBottle);
-        if (timeLeftToCollectBottle <= 1)
+        timeLeftToCollectAlien -= Time.deltaTime;
+        alienTimerTxt.SetText("Bottle Timer\n{0}", (int) timeLeftToCollectAlien);
+        if (timeLeftToCollectAlien <= 1)
         {
-            timeLeftToCollectBottle = maxTimeToCollectBottle + 1;
-            GameObject bottleObject = GameObject.Find("BottlePrefab(Clone)");
+            timeLeftToCollectAlien = maxTimeToCollectAlien + 1;
+            GameObject bottleObject = GameObject.Find("Alien(Clone)");
             Destroy(bottleObject);
             CreateBlackHole(bottleObject);
-            SpawnBottle();
+            SpawnAlien();
         }
     }
 
@@ -152,16 +152,16 @@ public class GameManager : MonoBehaviour
     }
 
     // Method that spawns a new bottle
-    private void SpawnBottle()
+    private void SpawnAlien()
     {
-        Debug.Log("SpawnBottle");
+        Debug.Log("SpawnAlien");
 
         float scaleX = (baseObject.transform.localScale.x / 2f) - 2;
         float scaleZ = (baseObject.transform.localScale.z / 2f) - 2;
         float randomX = Random.Range(-scaleX, scaleX);
         float randomZ = Random.Range(-scaleZ, scaleZ);
         Vector3 randomPosition = new Vector3(randomX, 0, randomZ);
-        GameObject newObject = Instantiate(bottleToSpawn.gameObject, randomPosition, baseObject.transform.localRotation);
+        GameObject newObject = Instantiate(alienToSpawn.gameObject, randomPosition, baseObject.transform.localRotation);
         newObject.transform.parent = baseObject.transform;
         newObject.transform.localPosition = new Vector3(newObject.transform.localPosition.x, 0.3f, newObject.transform.localPosition.z);
     }
