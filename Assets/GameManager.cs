@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject baseObject;
 
-    [Tooltip("Bottle prefab to be respawn")]
+    [Tooltip("Alien prefab to be respawn")]
     [SerializeField]
     GameObject alienToSpawn;
 
@@ -27,15 +27,15 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     TextMeshPro gameTimeScoreTxt; 
 
-    [Tooltip("Bottle timer text field to be edited")]
+    [Tooltip("Alien timer text field to be edited")]
     [SerializeField]
     TextMeshPro alienTimerTxt; 
 
-    [Tooltip("Number of bottle collected text field to be edited")]
+    [Tooltip("Number of aliens collected text field to be edited")]
     [SerializeField]
     TextMeshPro aliensCollectedTxt; 
 
-    [Tooltip("Decrease bottle timer when achived given score")]
+    [Tooltip("Decrease alien timer when achived given score")]
     [SerializeField]
     int scoreToReduceTimeAlien; 
 
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     float maxTimeToCollectAlien;
 
-    // Variable that holds the current time left to collect bottle
+    // Variable that holds the current time left to collect alien
     private float timeLeftToCollectAlien;
 
     // Game timer
@@ -52,14 +52,17 @@ public class GameManager : MonoBehaviour
     // Indicates whether the game is running
     private bool isActive = true;
 
-    // Number of bottles collected
+    // Number of aliens collected
     private int aliensCollected = 0; 
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
         timeLeftToCollectAlien = maxTimeToCollectAlien + 1;
         SpawnAlien();
+        
     }
 
     // Update is called once per frame
@@ -74,11 +77,11 @@ public class GameManager : MonoBehaviour
     // PUBLIC METHODS
 
     // Method thats being called when bottle is picked
-    public void OnAlienPicked(GameObject bottle)
+    public void OnAlienPicked(GameObject alien)
     {
         Debug.Log("OnAlienPicked");
         SpawnAlien();
-        Destroy (bottle);
+        Destroy (alien);
         aliensCollected += 1;
         Debug.Log("aliensCollected:" + aliensCollected);
         aliensCollectedTxt.SetText("Score\n{0}", (int)aliensCollected);
@@ -88,6 +91,7 @@ public class GameManager : MonoBehaviour
     // Method thats being called when the ball hits the sea
     public void OnBorderHit(GameObject ball)
     {
+        Debug.Log("just checking");
         Destroy (ball);
         isActive = false;
         Debug.Log("OnBorderHit");
@@ -132,22 +136,23 @@ public class GameManager : MonoBehaviour
     // Method that sets time left for collecting bottle
     private void AlienTime()
     {
+        Debug.Log("time over");
         timeLeftToCollectAlien -= Time.deltaTime;
         alienTimerTxt.SetText("Bottle Timer\n{0}", (int) timeLeftToCollectAlien);
         if (timeLeftToCollectAlien <= 1)
         {
             timeLeftToCollectAlien = maxTimeToCollectAlien + 1;
-            GameObject bottleObject = GameObject.Find("Alien(Clone)");
-            Destroy(bottleObject);
-            CreateBlackHole(bottleObject);
+            GameObject alienObject = GameObject.Find("Alien@idle(Clone)");
+            Destroy(alienObject);
+            CreateBlackHole(alienObject);
             SpawnAlien();
         }
     }
 
     // Method that creates new black hole on the uncollected bottle
-    private void CreateBlackHole(GameObject bottleObject)
+    private void CreateBlackHole(GameObject alienObject)
     {
-        GameObject newObject = Instantiate(blackHoleToSpawn.gameObject, bottleObject.transform.position, baseObject.transform.localRotation);
+        GameObject newObject = Instantiate(blackHoleToSpawn.gameObject, alienObject.transform.position, baseObject.transform.localRotation);
         newObject.transform.parent = baseObject.transform;
         newObject.transform.localPosition = new Vector3(newObject.transform.localPosition.x, 0.6f, newObject.transform.localPosition.z);
     }
@@ -162,7 +167,9 @@ public class GameManager : MonoBehaviour
         float randomX = Random.Range(-scaleX, scaleX);
         float randomZ = Random.Range(-scaleZ, scaleZ);
         Vector3 randomPosition = new Vector3(randomX, 0, randomZ);
-        GameObject newObject = Instantiate(alienToSpawn.gameObject, randomPosition, baseObject.transform.localRotation);
+       //GameObject newObject = Instantiate(alienToSpawn.gameObject, randomPosition, baseObject.transform.localRotation);
+       GameObject newObject = Instantiate(alienToSpawn.gameObject, randomPosition,  baseObject.transform.localRotation
+       =Quaternion.Euler(new Vector3(180, 180, 180)));
         newObject.transform.parent = baseObject.transform;
         newObject.transform.localPosition = new Vector3(newObject.transform.localPosition.x, 0.3f, newObject.transform.localPosition.z);
     }
@@ -170,4 +177,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    
+
 }
