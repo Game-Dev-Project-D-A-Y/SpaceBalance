@@ -14,7 +14,7 @@ public class BallScript : MonoBehaviour
     {
         if(other.CompareTag("Alien")) 
         {
-            gm.OnBottlePicked(other.gameObject);
+            gm.OnAlienPicked(other.gameObject);
         }
 
         if (other.CompareTag("BottomBorder"))
