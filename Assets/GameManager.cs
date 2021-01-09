@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 
 /**
+michael
 *   Class that manages game events
 */
 public class GameManager : MonoBehaviour
