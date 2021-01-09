@@ -161,7 +161,6 @@ public class GameManager : MonoBehaviour
         float randomX = Random.Range(-scaleX, scaleX);
         float randomZ = Random.Range(-scaleZ, scaleZ);
         Vector3 randomPosition = new Vector3(randomX, 0, randomZ);
-
         GameObject newObject = Instantiate(bottleToSpawn.gameObject, randomPosition, baseObject.transform.localRotation);
         newObject.transform.parent = baseObject.transform;
         newObject.transform.localPosition = new Vector3(newObject.transform.localPosition.x, 0.3f, newObject.transform.localPosition.z);

@@ -12,7 +12,7 @@ public class BallScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Bottle")) 
+        if(other.CompareTag("Alien")) 
         {
             gm.OnBottlePicked(other.gameObject);
         }
