@@ -1227,7 +1227,6 @@ MonoBehaviour:
   scoreToReduceTimeAlien: 10
   maxTimeToCollectAlien: 10
   gameOverPanel: {fileID: 2101844564}
-  gameOverScoreTxt: {fileID: 0}
 --- !u!4 &1094938811
 Transform:
   m_ObjectHideFlags: 0
