@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StartGameWindow.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: da1da9f4b6b5f2f40a9bb46d220eaca3
   - enabled: 1
     path: Assets/Scenes/SaveTheSea.unity
