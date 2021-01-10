@@ -8,6 +8,7 @@ TagManager:
   - BottomBorder
   - BlackHole
   - Alien
+  - Sound
   layers:
   - Default
   - TransparentFX

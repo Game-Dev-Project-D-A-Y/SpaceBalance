@@ -9,6 +9,7 @@ public class PanelManager : MonoBehaviour
     [SerializeField] Slider audioSlider;
     [SerializeField] AudioSource audioSource;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,11 @@ public class PanelManager : MonoBehaviour
             audioSlider.minValue = 0;
             audioSlider.maxValue = 1;
         }
+    
+            audioSource = GameObject.FindWithTag("Sound").GetComponent<AudioSource>();
+                   audioSlider.value = audioSource.volume;
+
+        
     }
 
     // Update is called once per frame
