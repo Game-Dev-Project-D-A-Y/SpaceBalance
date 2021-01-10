@@ -1029,8 +1029,8 @@ MonoBehaviour:
   gameTimeScoreTxt: {fileID: 1518890797}
   alienTimerTxt: {fileID: 1817329866}
   aliensCollectedTxt: {fileID: 307435858}
-  scoreToReduceTimeAlien: 3
-  maxTimeToCollectAlien: 3
+  scoreToReduceTimeAlien: 10
+  maxTimeToCollectAlien: 10
 --- !u!4 &1094938811
 Transform:
   m_ObjectHideFlags: 0
