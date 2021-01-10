@@ -1004,7 +1004,7 @@ GameObject:
   - component: {fileID: 1094938810}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Alien
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1029,8 +1029,8 @@ MonoBehaviour:
   gameTimeScoreTxt: {fileID: 1518890797}
   alienTimerTxt: {fileID: 1817329866}
   aliensCollectedTxt: {fileID: 307435858}
-  scoreToReduceTimeAlien: 10
-  maxTimeToCollectAlien: 10
+  scoreToReduceTimeAlien: 3
+  maxTimeToCollectAlien: 3
 --- !u!4 &1094938811
 Transform:
   m_ObjectHideFlags: 0
@@ -1043,7 +1043,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1518890796
 GameObject:
@@ -1762,7 +1762,7 @@ PrefabInstance:
     - target: {fileID: 7861731287642641426, guid: ba3647c2410789f4486baa2569d4c2db,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7861731287642641426, guid: ba3647c2410789f4486baa2569d4c2db,
         type: 3}
@@ -1877,7 +1877,7 @@ PrefabInstance:
     - target: {fileID: 5909573481265240959, guid: 284100781997ec3448b25d9b4af4f7e7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5909573481265240959, guid: 284100781997ec3448b25d9b4af4f7e7,
         type: 3}
@@ -1951,7 +1951,7 @@ PrefabInstance:
     - target: {fileID: 8607286332841480652, guid: d498422697454f04d964117017efdfdf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8607286332841480652, guid: d498422697454f04d964117017efdfdf,
         type: 3}
