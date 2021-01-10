@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
         if (isActive)
         {
             timeGained += Time.deltaTime;
-            gameTimeScoreTxt.SetText("Score\n{0}", (int)timeGained);
+            gameTimeScoreTxt.SetText("Score: {0}", (int)timeGained);
         }
     }
 
@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour
     private void AlienTime()
     {
         timeLeftToCollectAlien -= Time.deltaTime;
-        alienTimerTxt.SetText("Bottle Timer\n{0}", (int) timeLeftToCollectAlien);
+        alienTimerTxt.SetText("Alien Vanishes\n in: {0}", (int) timeLeftToCollectAlien);
         if (timeLeftToCollectAlien <= 1)
         {
             timeLeftToCollectAlien = maxTimeToCollectAlien + 1;
@@ -213,8 +213,32 @@ public class GameManager : MonoBehaviour
     private void GameOver(){
         gameOverPanel.SetActive(true);
         GameObject obj = gameOverPanel.transform.GetChild(0).gameObject;
-        TextMeshProUGUI txt = obj.GetComponent<TextMeshProUGUI>();
-        txt.SetText(aliensCollected + "");
+        TextMeshProUGUI yourScoreTxt = obj.GetComponent<TextMeshProUGUI>();
+        yourScoreTxt.SetText(aliensCollected + "");
+
+        GameObject objComment = gameOverPanel.transform.GetChild(1).gameObject;
+        TextMeshProUGUI commentTxt = objComment.GetComponent<TextMeshProUGUI>();
+
+        if (aliensCollected == 0)
+        {
+            commentTxt.SetText("Zero Points?!\nYou Can Do Better! \n Try Again!!");
+        }else if (aliensCollected < 10)
+        {
+            commentTxt.SetText("Try Reach 10 Points \n Try Again!!");
+        }else if (aliensCollected <= 25)
+        {
+            commentTxt.SetText("You Are Improving \n Give It Another Try!!");
+        }
+        else if (aliensCollected <= 35)
+        {
+            commentTxt.SetText("You Are Becoming A Master \n Let's Go Again!!");
+        }
+        else 
+        {
+            commentTxt.SetText("Wow That Must Be A Record \n Can You Beat Yourself??");
+        }
+
+
     }
     private void LoadCurrnetScene()
     {

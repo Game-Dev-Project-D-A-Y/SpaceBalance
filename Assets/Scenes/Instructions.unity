@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -882,9 +882,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "1. Use the arrows to move the surface\n\n2. Save the ball from falling
-    from tthe surface\n\n3. Collect aliens on the given alien's time\n\n4. In any
-    case you'll not collect an alien on time, \n    a hole will appear instead."
+  m_text: "1. Use the arrows to control the surface\n\n2. Save the ball from falling
+    from the surface\n\n3. Collect as many Aliens as you can \n    before they vanish\n\n4.
+    If you'll not collect the alien on time, \n    a black hole will appear in it's
+    place: \n                     WATCH OUT!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -911,8 +912,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1060,7 +1061,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Instruction:
+  m_text: 'Instructions:
 
 '
   m_isRightToLeft: 0
