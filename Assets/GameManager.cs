@@ -167,11 +167,14 @@ public class GameManager : MonoBehaviour
         float randomX = Random.Range(-scaleX, scaleX);
         float randomZ = Random.Range(-scaleZ, scaleZ);
         Vector3 randomPosition = new Vector3(randomX, 0, randomZ);
-       //GameObject newObject = Instantiate(alienToSpawn.gameObject, randomPosition, baseObject.transform.localRotation);
-       GameObject newObject = Instantiate(alienToSpawn.gameObject, randomPosition,  baseObject.transform.localRotation
-       =Quaternion.Euler(new Vector3(180, 180, 180)));
+       GameObject newObject = Instantiate(alienToSpawn.gameObject, randomPosition, baseObject.transform.localRotation);
+    //    GameObject newObject = Instantiate(alienToSpawn.gameObject, randomPosition,  baseObject.transform.localRotation
+    //    =Quaternion.Euler(new Vector3(180, 180, 180)));
         newObject.transform.parent = baseObject.transform;
         newObject.transform.localPosition = new Vector3(newObject.transform.localPosition.x, 0.3f, newObject.transform.localPosition.z);
+        //newObject.transform.localRotation = new Vector3(newObject.transform.localRotation.x,180,newObject.transform.localRotation.z);
+        newObject.transform.localRotation = Quaternion.Euler(new Vector3(newObject.transform.localRotation.x,180,newObject.transform.localRotation.z));
+
     }
     private void LoadCurrnetScene()
     {
