@@ -4,9 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 /**
-michael
 *   Class that manages game events
 */
 public class GameManager : MonoBehaviour
@@ -23,41 +21,44 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject blackHoleToSpawn;
 
+    [SerializeField]
+    GameObject baseBonusObjectToSpawn;
+
     [Tooltip("Time text field to be edited")]
     [SerializeField]
-    TextMeshPro gameTimeScoreTxt; 
+    TextMeshPro gameTimeScoreTxt;
 
     [Tooltip("Alien timer text field to be edited")]
     [SerializeField]
-    TextMeshPro alienTimerTxt; 
+    TextMeshPro alienTimerTxt;
 
     [Tooltip("Number of aliens collected text field to be edited")]
     [SerializeField]
-    TextMeshPro aliensCollectedTxt; 
+    TextMeshPro aliensCollectedTxt;
 
     [Tooltip("Decrease alien timer when achived given score")]
     [SerializeField]
-    int scoreToReduceTimeAlien; 
+    int scoreToReduceTimeAlien;
 
     [Tooltip("Maximum time for collecting bottle")]
     [SerializeField]
     float maxTimeToCollectAlien;
-     
-    [SerializeField] GameObject gameOverPanel;
+
+    [SerializeField]
+    GameObject gameOverPanel;
 
     // Variable that holds the current time left to collect alien
     private float timeLeftToCollectAlien;
 
     // Game timer
-    private float timeGained; 
+    private float timeGained;
 
     // Indicates whether the game is running
     private bool isActive = true;
 
     // Number of aliens collected
-    private int aliensCollected = 0; 
+    private int aliensCollected = 0;
 
-    
     private Vector3 baseScale;
 
     // Start is called before the first frame update
@@ -68,65 +69,89 @@ public class GameManager : MonoBehaviour
 
         timeLeftToCollectAlien = maxTimeToCollectAlien + 1;
         SpawnAlien();
-        
     }
-    bool bonus = false;
+
+    [Header("For Debugging")]
+    [SerializeField] private bool bonus = false;
+
     // Update is called once per frame
     void Update()
     {
         if (!isActive) return;
 
-        if(aliensCollected % 2 == 1 && !bonus) {
-            bonus = true;
-            BaseSizeBonus(true);
-        }
-       // UpdateGameTime();
+        BaseSizeBonus(false);
         AlienTime();
+    }
+
+    private void RandomBaseBonusObject()
+    {
+        int rand = Random.Range(0,1000);
+        if(rand < 1000)
+        {
+            SpawnBaseBonusObject();
+        }
     }
 
     private void BaseSizeBonus(bool isActive)
     {
-        if(isActive) {
-            float newX = baseObject.transform.localScale.x*2;
-            float newY = baseObject.transform.localScale.y;
-            float newZ = baseObject.transform.localScale.z*2;
-            Vector3 newScale = new Vector3(newX,newY,newZ);
-            SetBaseScale(newScale);
-        } else {
-            SetBaseScale(baseScale);
+        float newX,newY,newZ;
+        Vector3 newScale;
+        if (isActive)
+        {
+            newX = baseObject.transform.localScale.x * 2;
+            newY = baseObject.transform.localScale.y;
+            newZ = baseObject.transform.localScale.z * 2;
+            newScale = new Vector3(newX, newY, newZ);
+            SetBaseScale (newScale);
         }
 
+        newX = baseObject.transform.localScale.x - Time.deltaTime;
+        newY = baseObject.transform.localScale.y;
+        newZ = baseObject.transform.localScale.z - Time.deltaTime;
+        newScale = new Vector3(newX, newY, newZ);
+        if (newX >= baseScale.x || newZ >= baseScale.z)
+        {
+            SetBaseScale (newScale);
+        }
+        else
+        {
+            SetBaseScale (baseScale);
+        }
     }
 
     private void SetBaseScale(Vector3 newScale)
     {
-        Transform[] children = new Transform[ baseObject.transform.childCount ];
-        int i = 0;  
-        foreach( Transform T in baseObject.transform )
-            children[i++] = T;
+        Transform[] children = new Transform[baseObject.transform.childCount];
+        int i = 0;
+        foreach (Transform T in baseObject.transform) children[i++] = T;
 
         baseObject.transform.DetachChildren();
         baseObject.transform.localScale = newScale;
-        foreach( Transform T in children )
-             T.parent = baseObject.transform;
-    } 
-    // PUBLIC METHODS
+        foreach (Transform T in children) T.parent = baseObject.transform;
+    }
 
+    // PUBLIC METHODS
     // Method thats being called when bottle is picked
     public void OnAlienPicked(GameObject alien)
     {
+        RandomBaseBonusObject();
         SpawnAlien();
         Destroy (alien);
         aliensCollected += 1;
-        aliensCollectedTxt.SetText("Score\n{0}", (int)aliensCollected);
+        aliensCollectedTxt.SetText("Score\n{0}", (int) aliensCollected);
         CheckAndUpdateAlienTime();
+    }
+
+    public void OnBaseBonusPicked(GameObject bonusObj)
+    {
+        Destroy(bonusObj);
+        BaseSizeBonus(true);
     }
 
     // Method thats being called when the ball hits the sea
     public void OnBorderHit(GameObject ball)
     {
         Destroy (ball);
-        isActive = false;
         GameOver();
         //LoadCurrnetScene();
     }
@@ -135,20 +160,18 @@ public class GameManager : MonoBehaviour
     public void OnBlackHole(GameObject ball)
     {
         Destroy (ball);
-        isActive = false;
         GameOver();
         //LoadCurrnetScene();
     }
 
     // PRIVATE METHODS
-
     // Method that updates time of game
-    private void UpdateGameTime() 
+    private void UpdateGameTime()
     {
         if (isActive)
         {
             timeGained += Time.deltaTime;
-            gameTimeScoreTxt.SetText("Score: {0}", (int)timeGained);
+            gameTimeScoreTxt.SetText("Score: {0}", (int) timeGained);
         }
     }
 
@@ -170,32 +193,62 @@ public class GameManager : MonoBehaviour
     private void AlienTime()
     {
         timeLeftToCollectAlien -= Time.deltaTime;
-        alienTimerTxt.SetText("Alien Vanishes\n in: {0}", (int) timeLeftToCollectAlien);
+        alienTimerTxt
+            .SetText("Alien Vanishes\n in: {0}", (int) timeLeftToCollectAlien);
         if (timeLeftToCollectAlien <= 1)
         {
             timeLeftToCollectAlien = maxTimeToCollectAlien + 1;
+
             //GameObject alienObject = GameObject.Find("Alien@idle(Clone)");
-            GameObject[] alienObjects = GameObject.FindGameObjectsWithTag("Alien");
-            foreach(GameObject alienObject in alienObjects ) {
+            GameObject[] alienObjects =
+                GameObject.FindGameObjectsWithTag("Alien");
+            foreach (GameObject alienObject in alienObjects)
+            {
                 Transform transform = alienObject.transform;
-                CreateBlackHole(transform);
-                Destroy(alienObject);
+                CreateBlackHole (transform);
+                Destroy (alienObject);
                 SpawnAlien();
             }
-            
         }
     }
 
     // Method that creates new black hole on the uncollected bottle
     private void CreateBlackHole(Transform transform)
     {
-        GameObject newObject = Instantiate(blackHoleToSpawn.gameObject, transform.position, baseObject.transform.localRotation);
+        GameObject newObject =
+            Instantiate(blackHoleToSpawn.gameObject,
+            transform.position,
+            baseObject.transform.localRotation);
         newObject.transform.parent = baseObject.transform;
-        newObject.transform.localPosition = new Vector3(newObject.transform.localPosition.x, 0.6f, newObject.transform.localPosition.z);
+        newObject.transform.localPosition =
+            new Vector3(newObject.transform.localPosition.x,
+                0.6f,
+                newObject.transform.localPosition.z);
     }
 
     // Method that spawns a new bottle
-    private void SpawnAlien()
+    private void SpawnBaseBonusObject()
+    {
+        Debug.Log("SpawnBaseBonusObject");
+        float scaleX = (baseScale.x / 2f) - 2;
+        float scaleZ = (baseScale.z / 2f) - 2;
+
+        float randomX = Random.Range(-scaleX, scaleX);
+        float randomZ = Random.Range(-scaleZ, scaleZ);
+        Vector3 randomPosition = new Vector3(randomX, 0, randomZ);
+        GameObject newObject =
+            Instantiate(baseBonusObjectToSpawn.gameObject,
+            randomPosition,
+            baseObject.transform.localRotation);
+
+        newObject.transform.parent = baseObject.transform;
+        newObject.transform.localPosition =
+            new Vector3(newObject.transform.localPosition.x,
+                0.3f,
+                newObject.transform.localPosition.z);
+    }
+
+        private void SpawnAlien()
     {
         float scaleX = (baseScale.x / 2f) - 2;
         float scaleZ = (baseScale.z / 2f) - 2;
@@ -203,14 +256,26 @@ public class GameManager : MonoBehaviour
         float randomX = Random.Range(-scaleX, scaleX);
         float randomZ = Random.Range(-scaleZ, scaleZ);
         Vector3 randomPosition = new Vector3(randomX, 0, randomZ);
-       GameObject newObject = Instantiate(alienToSpawn.gameObject, randomPosition, baseObject.transform.localRotation);
+        GameObject newObject =
+            Instantiate(alienToSpawn.gameObject,
+            randomPosition,
+            baseObject.transform.localRotation);
 
         newObject.transform.parent = baseObject.transform;
-        newObject.transform.localPosition = new Vector3(newObject.transform.localPosition.x, 0.3f, newObject.transform.localPosition.z);
-        newObject.transform.localRotation = Quaternion.Euler(new Vector3(newObject.transform.localRotation.x,180,newObject.transform.localRotation.z));
-
+        newObject.transform.localPosition =
+            new Vector3(newObject.transform.localPosition.x,
+                0.3f,
+                newObject.transform.localPosition.z);
+        newObject.transform.localRotation =
+            Quaternion
+                .Euler(new Vector3(newObject.transform.localRotation.x,
+                    180,
+                    newObject.transform.localRotation.z));
     }
-    private void GameOver(){
+
+    private void GameOver()
+    {
+        isActive = false;
         gameOverPanel.SetActive(true);
         GameObject obj = gameOverPanel.transform.GetChild(0).gameObject;
         TextMeshProUGUI yourScoreTxt = obj.GetComponent<TextMeshProUGUI>();
@@ -221,11 +286,14 @@ public class GameManager : MonoBehaviour
 
         if (aliensCollected == 0)
         {
-            commentTxt.SetText("Zero Points?!\nYou Can Do Better! \n Try Again!!");
-        }else if (aliensCollected < 10)
+            commentTxt
+                .SetText("Zero Points?!\nYou Can Do Better! \n Try Again!!");
+        }
+        else if (aliensCollected < 10)
         {
             commentTxt.SetText("Try Reach 10 Points \n Try Again!!");
-        }else if (aliensCollected <= 25)
+        }
+        else if (aliensCollected <= 25)
         {
             commentTxt.SetText("You Are Improving \n Give It Another Try!!");
         }
@@ -233,18 +301,15 @@ public class GameManager : MonoBehaviour
         {
             commentTxt.SetText("You Are Becoming A Master \n Let's Go Again!!");
         }
-        else 
+        else
         {
-            commentTxt.SetText("Wow That Must Be A Record \n Can You Beat Yourself??");
+            commentTxt
+                .SetText("Wow That Must Be A Record \n Can You Beat Yourself??");
         }
-
-
     }
+
     private void LoadCurrnetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
-    
-
 }
