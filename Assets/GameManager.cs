@@ -96,11 +96,11 @@ public class GameManager : MonoBehaviour
     {
         int rand = Random.Range(0,1000);
         //board size cahnge
-        if(rand < baseBonusChance)
+        if(rand > baseBonusChance)
         {
             SpawnBaseBonusObject();
         }
-        if(rand<blackHolesBonusChance){
+        if(rand < blackHolesBonusChance){
             SpawnBlackHolesBonusObject();
         }
     }
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         
         GameObject [] blackHoles = GameObject.FindGameObjectsWithTag("BlackHole");
         foreach(GameObject blackHole in blackHoles){
-            blackHole.GetComponent<Collider>().enabled = false;        }
+            blackHole.SetActive(false);        }
 
         Debug.Log("blackholes"+ blackHoles.Length);
     }
