@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject baseBonusObjectToSpawn;
 
+    [SerializeField]
+    GameObject blackHolesBonusObjectToSpawn;
+
     [Tooltip("Time text field to be edited")]
     [SerializeField]
     TextMeshPro gameTimeScoreTxt;
@@ -46,6 +49,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     GameObject gameOverPanel;
+
+       [SerializeField]
+       int baseBonusChance;
+
+       [SerializeField]
+       int blackHolesBonusChance;
 
     // Variable that holds the current time left to collect alien
     private float timeLeftToCollectAlien;
@@ -86,10 +95,23 @@ public class GameManager : MonoBehaviour
     private void RandomBaseBonusObject()
     {
         int rand = Random.Range(0,1000);
-        if(rand < 1000)
+        //board size cahnge
+        if(rand < baseBonusChance)
         {
             SpawnBaseBonusObject();
         }
+        if(rand<blackHolesBonusChance){
+            SpawnBlackHolesBonusObject();
+        }
+    }
+
+    private void BlackHolesBonus(bool isActive){
+        
+        GameObject [] blackHoles = GameObject.FindGameObjectsWithTag("BlackHole");
+        foreach(GameObject blackHole in blackHoles){
+            blackHole.GetComponent<Collider>().enabled = false;        }
+
+        Debug.Log("blackholes"+ blackHoles.Length);
     }
 
     private void BaseSizeBonus(bool isActive)
@@ -119,6 +141,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+
     private void SetBaseScale(Vector3 newScale)
     {
         Transform[] children = new Transform[baseObject.transform.childCount];
@@ -146,6 +170,12 @@ public class GameManager : MonoBehaviour
     {
         Destroy(bonusObj);
         BaseSizeBonus(true);
+    }
+
+    public void OnBlackHolesBonusPicked(GameObject bonusObj)
+    {
+        Destroy(bonusObj);
+        BlackHolesBonus(true);
     }
 
     // Method thats being called when the ball hits the sea
@@ -245,6 +275,29 @@ public class GameManager : MonoBehaviour
         newObject.transform.localPosition =
             new Vector3(newObject.transform.localPosition.x,
                 0.3f,
+                newObject.transform.localPosition.z);
+    }
+
+    
+        private void SpawnBlackHolesBonusObject()
+    {
+        Debug.Log("SpawnBlackHolesBonusObject");
+        float scaleX = (baseScale.x / 2f) - 2;
+        float scaleZ = (baseScale.z / 2f) - 2;
+
+        float randomX = Random.Range(-scaleX, scaleX);
+        float randomZ = Random.Range(-scaleZ, scaleZ);
+        Vector3 randomPosition = new Vector3(randomX, 0, randomZ);
+        GameObject newObject =
+            Instantiate(blackHolesBonusObjectToSpawn.gameObject,
+            randomPosition,
+            baseObject.transform.localRotation);
+        Debug.Log("object scale"+newObject.transform.localScale );
+        newObject.transform.parent = baseObject.transform;
+        newObject.transform.localScale = new Vector3(0.02f,0.07f,0.02f);
+        newObject.transform.localPosition =
+            new Vector3(newObject.transform.localPosition.x,
+                0.8f,
                 newObject.transform.localPosition.z);
     }
 

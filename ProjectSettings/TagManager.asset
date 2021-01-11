@@ -10,6 +10,7 @@ TagManager:
   - Alien
   - Sound
   - BaseBonusObject
+  - BlackHolesBonusObject
   layers:
   - Default
   - TransparentFX

@@ -31,5 +31,10 @@ public class BallScript : MonoBehaviour
         {
             gm.OnBaseBonusPicked(other.gameObject);
         }
+        if (other.CompareTag("BlackHolesBonusObject"))
+        {
+            Debug.Log("BlackHolesBonusObject tag");
+            gm.OnBlackHolesBonusPicked(other.gameObject);
+        }
     }
 }

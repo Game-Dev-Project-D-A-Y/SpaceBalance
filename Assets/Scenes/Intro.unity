@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -629,11 +629,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Many many years ago, there best game was created somwhere across the univers..
-    Today you have the chance to play this game and by defitting the aliens you will
-    bring this fanatstic game to your own planet. So what are you wating for? Lets
-    sing you a song until you decide to press the "Menu" buttun: Marry had a little
-    lamb, little lamb, little lamb, marry had a liitle lamb.....common press it allready!!'
+  m_text: "Many many years ago, the best game was created somewhere across the universe..
+    Today you have the chance to play this game and by defeating the aliens you will
+    bring this fantastic game to your own planet. So what are you wating for? Lets
+    play !  If you still reading this line you must be bored so why don\u2019t you
+    just click the \"Skip Intro\" button and start playing. OK you must be very bored
+    if you are still here, it\u2019s not a joke anymore the universe needs you and
+    we are out of lines come on press the button !!! Enjoy Team D.A.Y"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
