@@ -12,6 +12,7 @@ public class ChangeScene : MonoBehaviour
     *   Load scene by given id
     */
     public void ChangeToScene(int changeTheScene){
+        Debug.Log("dovie Win");
         SceneManager.LoadScene(changeTheScene);
     }
 }
