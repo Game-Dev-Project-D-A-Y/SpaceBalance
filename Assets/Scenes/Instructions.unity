@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -517,6 +517,95 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &294544507
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.53
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.09
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.26934505
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.36605948
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.111566365
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8837458
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -33.9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -45.000004
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_Name
+      value: alien_spaceship
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f245097e56481b0489548b7f71eda911,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f245097e56481b0489548b7f71eda911, type: 3}
 --- !u!1 &531031949
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,7 +949,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 162, y: 15}
+  m_AnchoredPosition: {x: 134, y: 15}
   m_SizeDelta: {x: 411.58966, y: 149.73274}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1070743806
@@ -882,10 +971,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "1. Use the arrows to control the surface\n\n2. Save the ball from falling
-    from the surface\n\n3. Collect as many Aliens as you can \n    before they vanish\n\n4.
-    If you'll not collect the alien on time, \n    a black hole will appear in it's
-    place: \n                     WATCH OUT!"
+  m_text: "    Use the arrows to control the surface\n\nSave the ball from falling
+    from the surface\n\n Collect as many Aliens as you can before \n                    
+    they vanish\n\nCollect the alien on time or else a black hole \n            
+    will appear in it's place \n           \n                     WATCH OUT!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -962,6 +1051,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070743804}
   m_CullTransparentMesh: 0
+--- !u!1 &1111715078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f245097e56481b0489548b7f71eda911,
+    type: 3}
+  m_PrefabInstance: {fileID: 294544507}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1111715079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111715078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad4b9675088721d42af45f0e08b495f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotate: 0.6
 --- !u!1 &1177173237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,7 +1147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 256, y: 133}
+  m_AnchoredPosition: {x: 256, y: 176}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1287031148
@@ -1061,7 +1169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Instructions:
+  m_text: ' Instructions
 
 '
   m_isRightToLeft: 0
@@ -1228,7 +1336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1989488049
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1245,7 +1353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -379.1, y: 125}
+  m_AnchoredPosition: {x: -376, y: 125}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1989488050
