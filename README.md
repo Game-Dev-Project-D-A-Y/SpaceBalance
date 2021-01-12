@@ -4,7 +4,9 @@
      
 ### :video_game: [PLAY ON ITCH.IO](https://game-dev-project-d-a-y.itch.io/spacebalance) :video_game:
     
-    
+**Game Descreption** - Control the surface with the arrow keys avoid the black holes
+Try and reach the highest score by crushing the aliens before they vanish by using great balance skills and quick thinking.   
+Enjoy our Game    
 ## About the Devlopment of our Game:     
 
 ### Main Elements of the game  
