@@ -1,5 +1,5 @@
 
-# FinalProject-OceanBalance    
+# FinalProject-SpaceBalance    
 ### A game that tests your balance ability.
      
 ### :video_game: [PLAY ON ITCH.IO](https://game-dev-project-d-a-y.itch.io/ocean-balance) :video_game:
@@ -10,7 +10,7 @@
 ### Main Elements of the game  
 <img src= https://github.com/Game-Dev-Project-D-A-Y/OceanBalance/blob/main/base.jpg width="400" height="200"/>
    
-**Ball** - Has a RigidBody component which allows it to roll around the surface and a [BallScript script](https://github.com/Game-Dev-Project-D-A-Y/OceanBalance/blob/main/Assets/Scripts/BallScript.cs) which sends to the GameManager commands as soon as it colides with a bottle/whole/border.   
+**Ball** - Has a RigidBody component which allows it to roll around the surface and a [BallScript script](https://github.com/Game-Dev-Project-D-A-Y/SpaceBalance/blob/main/Assets/Scripts/BallScript.cs) which sends to the GameManager commands as soon as it colides with a allien/whole/border/bonus.   
  
 **Base** - The surface of the game which is controled by the [Mover Script](https://github.com/Game-Dev-Project-D-A-Y/OceanBalance/blob/main/Assets/Scripts/Mover.cs)
     
