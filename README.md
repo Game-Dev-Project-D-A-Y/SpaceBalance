@@ -128,9 +128,9 @@ let's Balance the space
 * חורים שחורים- מופיעים כאשר לא הצלחת לאסוף חייזר, חורים אלו יקשו על המשחק שכן אסור לכדור להכינס אליהם
 * הבונוסים - מעניקים לך את אפשרות הגדלת המשטח או העלמת החורים השחורים כשאר אתה אוסף אותם
 
-# הבונוסים
-** המשולש
-** החללית
+# Bonus
+** Trinagle
+** Spaceship
 <img src= https://github.com/Game-Dev-Project-D-A-Y/SpaceBalance/blob/main/Images/instruction2.png width="600" height="400"/>
 
 
