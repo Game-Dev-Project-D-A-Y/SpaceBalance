@@ -16,6 +16,9 @@
     
 **Alien** - Every N seconds it appears on the surface and disappears when the ball coliides with it or when it times out (every alien has a few seconds to be touched and when a player does not make it, a **black hole** appears instead of the alien and the player should **Not** touch the hole with the ball.   
 
+**Bonus**- randomly after picking an alien can apear a bonus which will shown as a triangle or as a spaceship by collecting it you get cool bonuses.
+
+
 ### GameManager
 In our project we created a [GameManager script](https://github.com/Game-Dev-Project-D-A-Y/SpaceBalance/blob/main/Assets/GameManager.cs) which through it we control the game.
 The pointes, timer and amount of aliiens collected are also controlled in this script and all of three have the Text Mesh Pro component.
@@ -75,9 +78,7 @@ let's Balance the space
 #### כפי שניתן לראות במסך זה מוצגת הפתיחה של המשחק והסבר קצר על סיפור המשחק
 <img src= https://github.com/Game-Dev-Project-D-A-Y/SpaceBalance/blob/main/Images/intro.png width="600" height="400"/>
 
-
-
-לאחר הקשת על כפתור ה"דלג" יופיע החלון הבא :
+#### לאחר הקשת על כפתור ה"דלג" יופיע החלון הבא :
 <img src= https://github.com/Game-Dev-Project-D-A-Y/SpaceBalance/blob/main/Images/mainMenu.png  width="600" height="400"/>
 
 לאחר לחיצה על כפתור "התחלה" יפתח מסך נוסף עם 3 כפתורים 
