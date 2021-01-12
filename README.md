@@ -8,7 +8,7 @@
 ## About the Devlopment of our Game:     
 
 ### Main Elements of the game  
-<img src= https://github.com/Game-Dev-Project-D-A-Y/OceanBalance/blob/main/base.jpg width="400" height="200"/>
+<img src= https://github.com/Game-Dev-Project-D-A-Y/SpaceBalance/blob/main/Images/theGame.png width="400" height="200"/>
    
 **Ball** - Has a RigidBody component which allows it to roll around the surface and a [BallScript script](https://github.com/Game-Dev-Project-D-A-Y/SpaceBalance/blob/main/Assets/Scripts/BallScript.cs) which sends to the GameManager commands as soon as it colides with a allien/whole/border/bonus.   
  
