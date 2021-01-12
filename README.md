@@ -129,8 +129,8 @@ let's Balance the space
 * הבונוסים - מעניקים לך את אפשרות הגדלת המשטח או העלמת החורים השחורים כשאר אתה אוסף אותם
 
 # Bonus
-** Trinagle
-** Spaceship
+* Trinagle
+* Spaceship
 <img src= https://github.com/Game-Dev-Project-D-A-Y/SpaceBalance/blob/main/Images/instruction2.png width="600" height="400"/>
 
 
