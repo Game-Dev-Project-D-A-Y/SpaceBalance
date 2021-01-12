@@ -23,11 +23,11 @@ The pointes, timer and amount of aliiens collected are also controlled in this s
 ### Design    
 To deisgn the background we used the skybox asset from the asset store, we design the game like "Star War" movie, the alliens the spaceships. 
 
-<img src= https://github.com/Game-Dev-Project-D-A-Y/OceanBalance/blob/main/Images/sea.jpg width="300" height="150"/>
+<img src= https://github.com/Game-Dev-Project-D-A-Y/SpaceBalance/blob/main/Images/background.png width="300" height="150"/>
     
     
-## So What are you waiting for? Go Save our Sea Friends    
-<img src= https://github.com/Game-Dev-Project-D-A-Y/OceanBalance/blob/main/Images/save%20the%20sea.jpg width="520" />
+## So What are you waiting for? Go Save earth   
+<img src= https://github.com/Game-Dev-Project-D-A-Y/SpaceBalance/blob/main/Images/intro.png width="520" />
 
  
 <div dir="rtl">    
@@ -36,10 +36,10 @@ To deisgn the background we used the skybox asset from the asset store, we desig
 
 העולם שלנו מתחיל להיהרס !
 דרושה פעולה מיידית של כל אחד מאיתנו !
-המשחק הזה מהנה בטירוף, תחרותי, כיפי ומשפר ביצועים מוטוריים עדינים אך עם זאת, מחביא בתוכנו מטרה עילאית והיא הטמעת עניין שמירת העולם וקיימות, בדרך צעירה כיפית ומשחקית.
+המשחק הזה מהנה בטירוף, תחרותי, כיפי ומשפר ביצועים מוטוריים עדינים , בדרך צעירה כיפית ומשחקית.
 אתה גם משחק גם שובר שיאים וגם מרגיש שאתה מציל את העולם 
 אז  
-let's Balance the Ocean
+let's Balance the space
 
 
 ### סוג המשחק ולמי מתאים
