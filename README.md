@@ -135,7 +135,7 @@ let's Balance the space
 <img src= https://github.com/Game-Dev-Project-D-A-Y/SpaceBalance/blob/main/Images/instruction2.png width="600" height="400"/>
 
 
-#Instructions
+# Instructions
 <img src= https://github.com/Game-Dev-Project-D-A-Y/SpaceBalance/blob/main/Images/instruction1.png width="600" height="400"/>
 
 
