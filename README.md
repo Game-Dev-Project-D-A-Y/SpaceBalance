@@ -2,7 +2,7 @@
 # FinalProject-SpaceBalance    
 ### A game that tests your balance ability.
      
-### :video_game: [PLAY ON ITCH.IO](https://game-dev-project-d-a-y.itch.io/ocean-balance) :video_game:
+### :video_game: [PLAY ON ITCH.IO](https://game-dev-project-d-a-y.itch.io/spacebalance) :video_game:
     
     
 ## About the Devlopment of our Game:     
