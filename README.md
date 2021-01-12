@@ -12,16 +12,16 @@
    
 **Ball** - Has a RigidBody component which allows it to roll around the surface and a [BallScript script](https://github.com/Game-Dev-Project-D-A-Y/SpaceBalance/blob/main/Assets/Scripts/BallScript.cs) which sends to the GameManager commands as soon as it colides with a allien/whole/border/bonus.   
  
-**Base** - The surface of the game which is controled by the [Mover Script](https://github.com/Game-Dev-Project-D-A-Y/OceanBalance/blob/main/Assets/Scripts/Mover.cs)
+**Base** - The surface of the game which is controled by the [Mover Script](https://github.com/Game-Dev-Project-D-A-Y/SpaceBalance/blob/main/Assets/Scripts/Mover.cs)
     
-**Bottle** - Every N seconds it appears on the surface and disappears when the ball coliides with it or when it times out (every bottle has a few seconds to be touched and when a player does not make it, a **black hole** appears instead of the bottle and the player should **Not** touch the hole with the ball.   
+**Alien** - Every N seconds it appears on the surface and disappears when the ball coliides with it or when it times out (every alien has a few seconds to be touched and when a player does not make it, a **black hole** appears instead of the alien and the player should **Not** touch the hole with the ball.   
 
 ### GameManager
-In our project we created a [GameManager script](https://github.com/Game-Dev-Project-D-A-Y/OceanBalance/blob/main/Assets/GameManager.cs) which through it we control the game.
-The pointes, timer and amount of bottles collected are also controlled in this script and all of three have the Text Mesh Pro component.
+In our project we created a [GameManager script](https://github.com/Game-Dev-Project-D-A-Y/SpaceBalance/blob/main/Assets/GameManager.cs) which through it we control the game.
+The pointes, timer and amount of aliiens collected are also controlled in this script and all of three have the Text Mesh Pro component.
 
 ### Design    
-To deisgn the sea under the base, we used a Shader. If you are no fammiliar with the unity Shader you may watch this video on [YouTube: Water Shader](https://www.youtube.com/watch?v=Vg0L9aCRWPE&t=302s).   
+To deisgn the background we used the skybox asset from the asset store, we design the game like "Star War" movie, the alliens the spaceships. 
 
 <img src= https://github.com/Game-Dev-Project-D-A-Y/OceanBalance/blob/main/Images/sea.jpg width="300" height="150"/>
     
